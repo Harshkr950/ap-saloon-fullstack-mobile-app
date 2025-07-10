@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP Saloon - Payment Integration Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .gold { color: #d4af37; }
+        .bg-gold { background-color: #d4af37; }
+        .border-gold { border-color: #d4af37; }
+        .shadow-gold { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3); }
+        .gradient-bg { background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center">
+                    <h1 class="text-3xl font-serif font-bold gold">AP SALOON</h1>
+                    <span class="ml-3 text-gray-600">Luxury Hair & Beauty</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-gold transition-colors">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-gold transition-colors">Services</a>
+                    <a href="#" class="text-gray-700 hover:text-gold transition-colors">Book Now</a>
+                    <a href="#" class="text-gray-700 hover:text-gold transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Demo Title -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">Payment Integration Demo</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Experience our seamless payment flow for salon appointments. This demo showcases the complete booking and payment process.
+            </p>
+        </div>
+
+        <!-- Demo Flow -->
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <!-- Booking Summary -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+                <h3 class="text-2xl font-serif font-bold text-gray-900 mb-6">Booking Summary</h3>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                        <span class="text-gray-600">Service:</span>
+                        <span class="font-semibold text-gray-900">Premium Hair Styling</span>
+                    </div>
+                    <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                        <span class="text-gray-600">Date:</span>
+                        <span class="font-semibold text-gray-900">December 15, 2024</span>
+                    </div>
+                    <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                        <span class="text-gray-600">Time:</span>
+                        <span class="font-semibold text-gray-900">2:00 PM</span>
+                    </div>
+                    <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                        <span class="text-gray-600">Stylist:</span>
+                        <span class="font-semibold text-gray-900">Priya Sharma</span>
+                    </div>
+                    <div class="flex justify-between items-center py-4 bg-gray-50 rounded-lg px-4">
+                        <span class="text-lg font-semibold text-gray-900">Total Amount:</span>
+                        <span class="text-2xl font-bold gold">₹1,800</span>
+                    </div>
+                </div>
+
+                <!-- Features List -->
+                <div class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl p-6">
+                    <h4 class="font-semibold text-gray-900 mb-4">✨ Payment Features</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle gold mr-2"></i> Secure card processing</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle gold mr-2"></i> Real-time validation</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle gold mr-2"></i> Instant confirmation</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle gold mr-2"></i> Email & SMS notifications</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Payment Form -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-serif font-bold text-gray-900">Payment Details</h3>
+                    <i class="fas fa-lock text-blue-500 text-xl"></i>
+                </div>
+
+                <form id="paymentForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Cardholder Name</label>
+                        <input type="text" id="cardName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all" placeholder="Enter name as on card" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Card Number</label>
+                        <input type="text" id="cardNumber" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Expiry Date</label>
+                            <input type="text" id="expiry" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all" placeholder="MM/YY" maxlength="5" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">CVC</label>
+                            <input type="password" id="cvc" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all" placeholder="123" maxlength="4" required>
+                        </div>
+                    </div>
+
+                    <!-- Security Notice -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-shield-alt text-blue-500 mr-3"></i>
+                            <span class="text-sm text-blue-700">Your payment information is secure and encrypted</span>
+                        </div>
+                    </div>
+
+                    <!-- Pay Button -->
+                    <button type="submit" id="payButton" class="w-full bg-gold hover:bg-yellow-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-gold transform hover:scale-105">
+                        <span id="payButtonText">Pay ₹1,800</span>
+                        <i id="loadingIcon" class="fas fa-spinner fa-spin ml-2 hidden"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- API Integration Info -->
+        <div class="mt-16 bg-white rounded-2xl shadow-lg p-8">
+            <h3 class="text-2xl font-serif font-bold text-gray-900 mb-6">Backend Integration</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">📡 API Endpoints</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="bg-gray-50 rounded-lg p-3">
+                            <code class="text-green-600">POST /api/payment/:bookingId</code>
+                            <p class="text-gray-600 mt-1">Process payment for booking</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-3">
+                            <code class="text-blue-600">GET /api/payment/:bookingId/status</code>
+                            <p class="text-gray-600 mt-1">Check payment status</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">🔧 Features Implemented</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Payment model with transaction tracking</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Secure payment processing endpoint</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> React Native PaymentScreen component</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Navigation integration</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Error handling & validation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-check text-green-500 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Payment Successful!</h3>
+            <p class="text-gray-600 mb-4">Your appointment has been confirmed.</p>
+            <p class="text-sm text-gray-500 mb-6">Transaction ID: <span id="transactionId" class="font-mono">TXN123456789</span></p>
+            <button onclick="closeModal()" class="bg-gold hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg transition-all">
+                Continue
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Format card number with spaces
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formattedValue = value.replace(/(.{4})/g, '$1 ').trim();
+            if (formattedValue.length <= 19) {
+                e.target.value = formattedValue;
+            }
+        });
+
+        // Format expiry date
+        document.getElementById('expiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // Handle form submission
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const payButton = document.getElementById('payButton');
+            const payButtonText = document.getElementById('payButtonText');
+            const loadingIcon = document.getElementById('loadingIcon');
+            
+            // Show loading state
+            payButton.disabled = true;
+            payButtonText.textContent = 'Processing...';
+            loadingIcon.classList.remove('hidden');
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                // Reset button
+                payButton.disabled = false;
+                payButtonText.textContent = 'Pay ₹1,800';
+                loadingIcon.classList.add('hidden');
+                
+                // Show success modal
+                document.getElementById('transactionId').textContent = 'TXN' + Date.now();
+                document.getElementById('successModal').classList.remove('hidden');
+                document.getElementById('successModal').classList.add('flex');
+            }, 2000);
+        });
+
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+            
+            // Reset form
+            document.getElementById('paymentForm').reset();
+        }
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
